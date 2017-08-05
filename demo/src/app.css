@@ -1,0 +1,53 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+#chip8-wrapper {
+  display: grid;
+  grid-gap: 1em;
+}
+
+#chip8-canvas {
+  width: 100%;
+  image-rendering: pixelated;
+}
+
+@media (min-width: 576px) {
+  .container {
+    width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+
+  #chip8-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1140px;
+  }
+}
