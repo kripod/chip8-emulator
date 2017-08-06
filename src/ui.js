@@ -34,10 +34,11 @@ export default class UI extends CPU {
   cpuIntervalId: number;
   timersIntervalId: number;
 
-  constructor({
-    keyboardListener,
-    canvas,
-    cpuFrequency = 600,
+  constructor(
+    {
+      keyboardListener,
+      canvas,
+      cpuFrequency = 600,
     }: {
       keyboardListener: EventTarget,
       canvas: HTMLCanvasElement,
