@@ -4,4 +4,8 @@
 
 [libs]
 
+[lints]
+all=warn
+
 [options]
+include_warnings=true
