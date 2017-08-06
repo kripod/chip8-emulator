@@ -15,35 +15,52 @@
       <h1>CHIP-8 Emulator</h1>
 
       <div id="chip8-wrapper" tabindex="1">
+        <select id="chip8-rom-select">
+          <option disabled selected>Select a ROM</option>
+          <option>15PUZZLE</option>
+          <option>BLINKY</option>
+          <option>BLITZ</option>
+          <option>BRIX</option>
+          <option>CONNECT4</option>
+          <option>GUESS</option>
+          <option>HIDDEN</option>
+          <option>INVADERS</option>
+          <option>KALEID</option>
+          <option>MAZE</option>
+          <option>MERLIN</option>
+          <option>MISSILE</option>
+          <option>PONG</option>
+          <option>PONG2</option>
+          <option>PUZZLE</option>
+          <option>SYZYGY</option>
+          <option>TANK</option>
+          <option>TETRIS</option>
+          <option>TICTAC</option>
+          <option>UFO</option>
+          <option>VBRIX</option>
+          <option>VERS</option>
+          <option>WIPEOFF</option>
+        </select>
+
         <canvas id="chip8-canvas"></canvas>
 
-        <div>
-          <select id="chip8-rom-select">
-            <option disabled selected>Select a ROM</option>
-            <option>15PUZZLE</option>
-            <option>BLINKY</option>
-            <option>BLITZ</option>
-            <option>BRIX</option>
-            <option>CONNECT4</option>
-            <option>GUESS</option>
-            <option>HIDDEN</option>
-            <option>INVADERS</option>
-            <option>KALEID</option>
-            <option>MAZE</option>
-            <option>MERLIN</option>
-            <option>MISSILE</option>
-            <option>PONG</option>
-            <option>PONG2</option>
-            <option>PUZZLE</option>
-            <option>SYZYGY</option>
-            <option>TANK</option>
-            <option>TETRIS</option>
-            <option>TICTAC</option>
-            <option>UFO</option>
-            <option>VBRIX</option>
-            <option>VERS</option>
-            <option>WIPEOFF</option>
-          </select>
+        <div id="chip8-controls">
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>C</button>
+          <button>4</button>
+          <button>5</button>
+          <button>6</button>
+          <button>D</button>
+          <button>7</button>
+          <button>8</button>
+          <button>9</button>
+          <button>E</button>
+          <button>A</button>
+          <button>0</button>
+          <button>B</button>
+          <button>F</button>
         </div>
       </div>
     </div>
