@@ -15,6 +15,18 @@ const fetchROM = (url) => {
   });
 };
 
+const onKeyButtonMouseDown = (event: MouseEvent) => {
+  if (event.target instanceof Element) {
+    chip8.keyboard.pressedKeys.add(parseInt(event.target.innerHTML, 16));
+  }
+};
+
+const onKeyButtonMouseUp = (event: MouseEvent) => {
+  if (event.target instanceof Element) {
+    chip8.keyboard.pressedKeys.delete(parseInt(event.target.innerHTML, 16));
+  }
+};
+
 const onDOMContentLoaded = () => {
   const wrapper = document.getElementById('chip8-wrapper');
   const romSelector = document.getElementById('chip8-rom-selector');
@@ -27,10 +39,16 @@ const onDOMContentLoaded = () => {
     !(canvas instanceof HTMLCanvasElement) ||
     keyboard == null
   ) {
-    throw new Error(); // TODO
+    throw new Error('Could not initialize CHIP-8 UI. Some HTML elements are invalid or missing.');
   }
 
   chip8 = new UI({ wrapper, canvas });
+
+  Array.from(keyboard.children).forEach((button) => {
+    button.addEventListener('mousedown', onKeyButtonMouseDown);
+    button.addEventListener('mouseup', onKeyButtonMouseUp);
+    button.addEventListener('mouseleave', onKeyButtonMouseUp);
+  });
 
   romSelector.addEventListener('change', () => {
     fetchROM(`roms/${romSelector.value}`);
