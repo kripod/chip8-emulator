@@ -1,7 +1,6 @@
 // @flow
 
 import { UI } from './../../src';
-import './app.css';
 
 let chip8;
 
