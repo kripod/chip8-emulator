@@ -17,21 +17,23 @@ const fetchROM = (url) => {
 
 const onDOMContentLoaded = () => {
   const wrapper = document.getElementById('chip8-wrapper');
+  const romSelector = document.getElementById('chip8-rom-selector');
   const canvas = document.getElementById('chip8-canvas');
-  const romSelect = document.getElementById('chip8-rom-select');
+  const keyboard = document.getElementById('chip8-keyboard');
 
   if (
     wrapper == null ||
+    !(romSelector instanceof HTMLSelectElement) ||
     !(canvas instanceof HTMLCanvasElement) ||
-    !(romSelect instanceof HTMLSelectElement)
+    keyboard == null
   ) {
     throw new Error(); // TODO
   }
 
   chip8 = new UI({ wrapper, canvas });
 
-  romSelect.addEventListener('change', () => {
-    fetchROM(`roms/${romSelect.value}`);
+  romSelector.addEventListener('change', () => {
+    fetchROM(`roms/${romSelector.value}`);
   });
 };
 
