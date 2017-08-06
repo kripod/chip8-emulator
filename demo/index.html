@@ -14,33 +14,40 @@
     <div class="container">
       <h1>CHIP-8 Emulator</h1>
 
-      <div id="chip8-wrapper" tabindex="1">
-        <select id="chip8-rom-selector">
-          <option disabled selected>Select a ROM</option>
-          <option>15PUZZLE</option>
-          <option>BLINKY</option>
-          <option>BLITZ</option>
-          <option>BRIX</option>
-          <option>CONNECT4</option>
-          <option>GUESS</option>
-          <option>HIDDEN</option>
-          <option>INVADERS</option>
-          <option>KALEID</option>
-          <option>MAZE</option>
-          <option>MERLIN</option>
-          <option>MISSILE</option>
-          <option>PONG</option>
-          <option>PONG2</option>
-          <option>PUZZLE</option>
-          <option>SYZYGY</option>
-          <option>TANK</option>
-          <option>TETRIS</option>
-          <option>TICTAC</option>
-          <option>UFO</option>
-          <option>VBRIX</option>
-          <option>VERS</option>
-          <option>WIPEOFF</option>
-        </select>
+      <div id="chip8-wrapper">
+        <div id="chip8-options">
+          <select id="chip8-rom-selector">
+            <option disabled selected>Select a ROM</option>
+            <option>15PUZZLE</option>
+            <option>BLINKY</option>
+            <option>BLITZ</option>
+            <option>BRIX</option>
+            <option>CONNECT4</option>
+            <option>GUESS</option>
+            <option>HIDDEN</option>
+            <option>INVADERS</option>
+            <option>KALEID</option>
+            <option>MAZE</option>
+            <option>MERLIN</option>
+            <option>MISSILE</option>
+            <option>PONG</option>
+            <option>PONG2</option>
+            <option>PUZZLE</option>
+            <option>SYZYGY</option>
+            <option>TANK</option>
+            <option>TETRIS</option>
+            <option>TICTAC</option>
+            <option>UFO</option>
+            <option>VBRIX</option>
+            <option>VERS</option>
+            <option>WIPEOFF</option>
+          </select>
+
+          <div>
+            Description line 1<br />
+            Description line 2
+          </div>
+        </div>
 
         <canvas id="chip8-canvas"></canvas>
 

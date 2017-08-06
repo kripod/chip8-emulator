@@ -28,13 +28,11 @@ const onKeyButtonMouseUp = (event: MouseEvent) => {
 };
 
 const onDOMContentLoaded = () => {
-  const wrapper = document.getElementById('chip8-wrapper');
   const romSelector = document.getElementById('chip8-rom-selector');
   const canvas = document.getElementById('chip8-canvas');
   const keyboard = document.getElementById('chip8-keyboard');
 
   if (
-    wrapper == null ||
     !(romSelector instanceof HTMLSelectElement) ||
     !(canvas instanceof HTMLCanvasElement) ||
     keyboard == null
@@ -42,7 +40,10 @@ const onDOMContentLoaded = () => {
     throw new Error('Could not initialize CHIP-8 UI. Some HTML elements are invalid or missing.');
   }
 
-  chip8 = new UI({ wrapper, canvas });
+  chip8 = new UI({
+    keyboardListener: document,
+    canvas,
+  });
 
   Array.from(keyboard.children).forEach((button) => {
     button.addEventListener('mousedown', onKeyButtonMouseDown);

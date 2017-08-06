@@ -35,25 +35,25 @@ export default class UI extends CPU {
   timersIntervalId: number;
 
   constructor({
-    wrapper,
+    keyboardListener,
     canvas,
     cpuFrequency = 600,
     }: {
-      wrapper: HTMLElement,
+      keyboardListener: EventTarget,
       canvas: HTMLCanvasElement,
       cpuFrequency?: number,
     },
   ) {
     super();
 
-    wrapper.addEventListener('keydown', (event: KeyboardEvent) => {
+    keyboardListener.addEventListener('keydown', (event: KeyboardEvent) => {
       const mappedKey = KEY_MAP.get(event.key);
       if (mappedKey !== undefined) {
         this.keyboard.pressedKeys.add(mappedKey);
       }
     });
 
-    wrapper.addEventListener('keyup', (event: KeyboardEvent) => {
+    keyboardListener.addEventListener('keyup', (event: KeyboardEvent) => {
       const mappedKey = KEY_MAP.get(event.key);
       if (mappedKey !== undefined) {
         this.keyboard.pressedKeys.delete(mappedKey);

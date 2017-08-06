@@ -19,6 +19,17 @@ h1, #chip8-wrapper button {
   grid-gap: 1.5em;
 }
 
+#chip8-options, #chip8-keyboard button, #chip8-canvas {
+  border: 0.25em solid #000;
+  border-radius: 0.25em;
+  background-color: #fff;
+}
+
+#chip8-options {
+  width: 100%;
+  height: 5em;
+}
+
 #chip8-canvas {
   width: 100%;
   -ms-interpolation-mode: nearest-neighbor;
@@ -32,12 +43,6 @@ h1, #chip8-wrapper button {
   grid-template-rows: repeat(4, 3em);
   grid-template-columns: repeat(4, 3em);
   grid-gap: 0.75em;
-}
-
-#chip8-keyboard button, #chip8-canvas {
-  border: 0.25em solid #000;
-  border-radius: 0.25em;
-  background-color: #fff;
 }
 
 #chip8-keyboard button {
@@ -70,7 +75,7 @@ h1, #chip8-wrapper button {
     grid-template-columns: 2fr 1fr;
   }
 
-  #chip8-rom-selector {
+  #chip8-options {
     grid-area: 1 / 1 / 2 / 3;
   }
 }
@@ -81,10 +86,12 @@ h1, #chip8-wrapper button {
   }
 
   #chip8-wrapper {
-    grid-template-columns: 1fr 2fr auto;
+    grid-template-columns: auto 2fr auto;
   }
 
-  #chip8-rom-selector {
+  #chip8-options {
+    width: 13.75em;
+    height: 13.75em;
     grid-column-end: 2;
   }
 }
