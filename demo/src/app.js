@@ -1,10 +1,11 @@
 // @flow
 
-import { UI } from './../../src';
+import { UI } from '../../src';
+import ROMList from /* preval */ './get-list-of-roms';
 
 let chip8;
 
-const fetchROM = (url) => {
+const fetchAndLoadROM = (url) => {
   fetch(url).then((response) => {
     response.arrayBuffer().then((buffer) => {
       chip8.stopEmulation();
@@ -28,17 +29,23 @@ const onKeyButtonMouseUp = (event: MouseEvent) => {
 };
 
 const onDOMContentLoaded = () => {
-  const romSelector = document.getElementById('chip8-rom-selector');
+  const ROMSelector = document.getElementById('chip8-rom-selector');
   const canvas = document.getElementById('chip8-canvas');
   const keyboard = document.getElementById('chip8-keyboard');
 
   if (
-    !(romSelector instanceof HTMLSelectElement) ||
+    !(ROMSelector instanceof HTMLSelectElement) ||
     !(canvas instanceof HTMLCanvasElement) ||
     keyboard == null
   ) {
     throw new Error('Could not initialize CHIP-8 UI. Some HTML elements are invalid or missing.');
   }
+
+  ROMList.forEach((title) => {
+    const optionElement = document.createElement('option');
+    optionElement.innerHTML = title;
+    ROMSelector.add(optionElement);
+  });
 
   chip8 = new UI({
     keyboardListener: document,
@@ -51,8 +58,8 @@ const onDOMContentLoaded = () => {
     button.addEventListener('mouseleave', onKeyButtonMouseUp);
   });
 
-  romSelector.addEventListener('change', () => {
-    fetchROM(`roms/${romSelector.value}`);
+  ROMSelector.addEventListener('change', () => {
+    fetchAndLoadROM(`roms/${ROMSelector.value}`);
   });
 };
 
