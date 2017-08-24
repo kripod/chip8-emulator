@@ -67,7 +67,7 @@ a:hover {
   cursor: pointer;
 }
 
-#chip8-keyboard button:active {
+#chip8-keyboard button:active, #chip8-keyboard button.active {
   top: 1px;
   left: 1px;
   box-shadow: 1px 1px;

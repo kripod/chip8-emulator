@@ -1,7 +1,9 @@
 // @flow
 
-import { UI } from '../../src';
+import { UI, KEY_MAP } from '../../src';
 import ROMList from /* preval */ './get-list-of-roms';
+
+const KEY_LIST = [...KEY_MAP.keys()];
 
 let chip8;
 
@@ -56,6 +58,20 @@ const onDOMContentLoaded = () => {
     button.addEventListener('mousedown', onKeyButtonMouseDown);
     button.addEventListener('mouseup', onKeyButtonMouseUp);
     button.addEventListener('mouseleave', onKeyButtonMouseUp);
+  });
+
+  window.addEventListener('keydown', (event: KeyboardEvent) => {
+    const keyIndex = KEY_LIST.indexOf(event.key);
+    if (keyIndex >= 0) {
+      keyboard.children[keyIndex].classList.add('active');
+    }
+  });
+
+  window.addEventListener('keyup', (event: KeyboardEvent) => {
+    const keyIndex = KEY_LIST.indexOf(event.key);
+    if (keyIndex >= 0) {
+      keyboard.children[keyIndex].classList.remove('active');
+    }
   });
 
   ROMSelector.addEventListener('change', () => {

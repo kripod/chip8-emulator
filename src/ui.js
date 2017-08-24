@@ -3,7 +3,7 @@
 
 import CPU from './cpu';
 
-const KEY_MAP = new Map([
+export const KEY_MAP = new Map([
   ['1', 0x1],
   ['2', 0x2],
   ['3', 0x3],
