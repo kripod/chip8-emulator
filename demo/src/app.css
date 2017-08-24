@@ -3,8 +3,20 @@ body {
 }
 
 h1, #chip8-wrapper button {
-  text-align: center;
   font-family: 'Press Start 2P', cursive;
+}
+
+a {
+  color: #0277bd;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.text-center, h1, #chip8-wrapper {
+  text-align: center;
 }
 
 .container {
@@ -17,6 +29,7 @@ h1, #chip8-wrapper button {
   justify-items: center;
   align-items: center;
   grid-gap: 1.5em;
+  margin: 1.5em 0;
 }
 
 #chip8-options, #chip8-keyboard button, #chip8-canvas {
