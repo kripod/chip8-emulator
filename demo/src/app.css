@@ -43,6 +43,10 @@ a:hover {
   height: 5em;
 }
 
+#chip8-options optgroup {
+  text-transform: capitalize;
+}
+
 #chip8-canvas {
   width: 100%;
   -ms-interpolation-mode: nearest-neighbor;

@@ -3,6 +3,8 @@
 import { UI, KEY_MAP } from '../../src';
 import ROMList from /* preval */ './get-list-of-roms';
 
+const ROM_FILE_EXTENSION = '.ch8';
+
 const KEY_LIST = [...KEY_MAP.keys()];
 
 let chip8;
@@ -43,10 +45,19 @@ const onDOMContentLoaded = () => {
     throw new Error('Could not initialize CHIP-8 UI. Some HTML elements are invalid or missing.');
   }
 
-  ROMList.forEach((title) => {
-    const optionElement = document.createElement('option');
-    optionElement.innerHTML = title;
-    ROMSelector.add(optionElement);
+  new Map(ROMList).forEach((titles, categoryName) => {
+    const categoryElement = document.createElement('optgroup');
+
+    if (categoryElement instanceof HTMLOptGroupElement) {
+      categoryElement.label = categoryName;
+      ROMSelector.add(categoryElement);
+
+      titles.forEach((title) => {
+        const optionElement = document.createElement('option');
+        optionElement.innerHTML = title;
+        categoryElement.appendChild(optionElement);
+      });
+    }
   });
 
   chip8 = new UI({
@@ -75,7 +86,10 @@ const onDOMContentLoaded = () => {
   });
 
   ROMSelector.addEventListener('change', () => {
-    fetchAndLoadROM(`roms/${ROMSelector.value}`);
+    const parentCategoryElement = ROMSelector.selectedOptions[0].parentNode;
+    if (parentCategoryElement instanceof HTMLOptGroupElement) {
+      fetchAndLoadROM(`roms/${parentCategoryElement.label}/${ROMSelector.value}${ROM_FILE_EXTENSION}`);
+    }
   });
 };
 
